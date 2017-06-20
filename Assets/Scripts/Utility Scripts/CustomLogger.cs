@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CustomLogger : Singleton<CustomLogger> {
+public class CustomLogger : SingletonMonoBehaviour<CustomLogger> {
     Text logText;
 
     void Awake() {

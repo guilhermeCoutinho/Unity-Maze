@@ -6,7 +6,7 @@ using System.IO;
 using UnityEngine.UI;
 using System.Text;
 
-public class GridBuilder : Singleton<GridBuilder> {
+public class GridBuilder : SingletonMonoBehaviour<GridBuilder> {
 	public CellElement[] cellTypeColor;
 	public Text fileText;
     ObjectPool pool;

@@ -7,14 +7,16 @@ using System.Text;
 
 public static class CSVParser {
     public static string path = "LevelData/";
-    public static List<int> ParseCSV(string fileName, out int colCount) {
+    public static List<int> ParseCSV(string fileName,
+        out int colCount) {
         List<int> data = new List<int>();
         colCount = 0;
 
         try
         {
             string line;
-            StreamReader streamReader = new StreamReader(path + fileName, Encoding.Default);
+            StreamReader streamReader = new StreamReader(
+                path + fileName, Encoding.Default);
             using (streamReader)
             {
                 do
@@ -38,7 +40,8 @@ public static class CSVParser {
         }
         catch (Exception e)
         {
-            Debug.Log("Unable to open file\n" + e.Message);
+            Debug.Log("Unable to open file\n" 
+                + e.Message);
             return null;
         }
         //setupGrid(data, colCount);

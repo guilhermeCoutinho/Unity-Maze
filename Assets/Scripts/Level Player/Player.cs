@@ -6,4 +6,9 @@ public class Player : MonoBehaviour {
 
     LevelData levelData;
 
+    void Start ()
+    {
+        levelData = LevelLoader.Instance.LoadedLevelData;
+    }
+
 }

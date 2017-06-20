@@ -5,9 +5,9 @@ public class LevelData
     int[,] grid;
     int[,] Grid { get { return grid; } }
 
-    Vector2 playerPositionInGrid;
-    Vector2 endPositionInGrid;
-    List<Vector2> enemiesPositionInGrid;
+    public Vector2 playerPositionInGrid;
+    public Vector2 endPositionInGrid;
+    public List<Vector2> enemiesPositionInGrid;
 
     public LevelData(int rowCount, int colCount)
     {

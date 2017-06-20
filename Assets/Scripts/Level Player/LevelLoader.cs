@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelLoader : MonoBehaviour {
+public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 
     const string FILE_NAME = "Level ";
     public int level;

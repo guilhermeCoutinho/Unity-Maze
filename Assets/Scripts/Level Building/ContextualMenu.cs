@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ContextualMenu : Singleton<ContextualMenu> {
+public class ContextualMenu : SingletonMonoBehaviour<ContextualMenu> {
 	GameObject child ;
 	[HideInInspector]public GridObject currentSelectedObject ;
 

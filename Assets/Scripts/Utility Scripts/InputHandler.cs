@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputHandler : Singleton<InputHandler> {
+public class InputHandler : SingletonMonoBehaviour<InputHandler> {
 
 	public delegate void MouseClickDelegate ();
 	public static event MouseClickDelegate OnMouseClick ;
