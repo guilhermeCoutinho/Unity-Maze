@@ -7,7 +7,11 @@ public class LevelLoader : MonoBehaviour {
     const string FILE_NAME = "Level ";
     public int level;
     public ObjectPool pool;
-
+    LevelData model;
+    public LevelData LoadedLevelData
+    {
+        get { return model; }
+    }
     void Start ()
     {
         LoadLevel();
@@ -19,25 +23,25 @@ public class LevelLoader : MonoBehaviour {
         List<int> data;
         data = CSVParser.ParseCSV(FILE_NAME + level + ".csv", out colCount);
 
-       
-        int width = colCount;
-        int height = data.Count / colCount;
+        int rowCount = data.Count / colCount;
 
+        model = new LevelData(rowCount , colCount);
         
-        for (int i = 0; i < height; i++)
+        for (int i = 0; i < rowCount; i++)
         {
-            for (int j = 0; j < width; j++)
+            for (int j = 0; j < colCount; j++)
             {
-               if (data[i * width + j] > 0)
+                int value = data[i * colCount + j];
+                model.setCell(i, j, value);
+               if ( value > 0)
                 {
                     GameObject go = pool.getObject();
-                    go.transform.name = "" + data[i*width+j];
-                    go.transform.position = new Vector3( j -width/2, (height-1- i) -height/2 , 0);
+                    go.transform.name = "Cell_"+ i + "," + j + "_" + value;
+                    go.transform.position = new Vector3( j - colCount/2, (rowCount-1- i) -rowCount/2 , 0);
                 }
             }
         }
-
+        model.printGrid();
     }
-
-
+    
 }
