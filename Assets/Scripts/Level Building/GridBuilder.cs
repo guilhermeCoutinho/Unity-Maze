@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using System.Text;
 
 public class GridBuilder : Singleton<GridBuilder> {
-	public CellTypeColor[] cellTypeColor;
+	public CellElement[] cellTypeColor;
 	public Text fileText;
     ObjectPool pool;
 	int[,] grid;
@@ -112,7 +112,7 @@ public class GridBuilder : Singleton<GridBuilder> {
 		
 }
 [System.Serializable]
-public class CellTypeColor {
+public class CellElement {
 	public enum Type {
 		EMPTY ,
 		FLOOR ,
@@ -121,6 +121,6 @@ public class CellTypeColor {
 		ENEMY_POSITION
 	}
 
-	public Type celltype ;
+	public Type type ;
 	public Color color ;
 }

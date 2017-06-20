@@ -38,7 +38,7 @@ public static class CSVParser {
         }
         catch (Exception e)
         {
-            Debug.Log("Unable to open file");
+            Debug.Log("Unable to open file\n" + e.Message);
             return null;
         }
         //setupGrid(data, colCount);

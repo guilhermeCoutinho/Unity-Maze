@@ -1,16 +1,38 @@
-﻿public class LevelData
+﻿using UnityEngine;
+using System.Collections.Generic;
+public class LevelData
 {
     int[,] grid;
     int[,] Grid { get { return grid; } }
 
+    Vector2 playerPositionInGrid;
+    Vector2 endPositionInGrid;
+    List<Vector2> enemiesPositionInGrid;
+
     public LevelData(int rowCount, int colCount)
     {
         grid = new int[rowCount, colCount];
+        enemiesPositionInGrid = new List<Vector2>();
     }
 
     public void setCell(int x, int y, int v)
     {
-        grid[x, y] = v;
+        if (v != (int)CellElement.Type.EMPTY)
+            grid[x, y] = (int)CellElement.Type.FLOOR;
+        else
+            grid[x, y] = v;
+        switch (v)
+        {
+            case (int)CellElement.Type.INITIAL_POSITION:
+                playerPositionInGrid = new Vector2(x,y);
+                break;
+            case (int)CellElement.Type.ENEMY_POSITION:
+                enemiesPositionInGrid.Add(new Vector2(x, y));
+                break;
+            case (int)CellElement.Type.END_POSITION:
+                endPositionInGrid = new Vector2(x, y);
+                break;
+        }
     }
 
     public void printGrid()
@@ -24,7 +46,7 @@
             }
             debug += "\n";
         }
-        UnityEngine.Debug.Log(debug);
+        Debug.Log(debug);
 
     }
 

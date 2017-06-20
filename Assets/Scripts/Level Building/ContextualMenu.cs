@@ -30,7 +30,7 @@ public class ContextualMenu : Singleton<ContextualMenu> {
 	}
 	void setNameNColor (GameObject clone , int i)
 	{
-		clone.name = GridBuilder.Instance.cellTypeColor [i].celltype.ToString ();
+		clone.name = GridBuilder.Instance.cellTypeColor [i].type.ToString ();
 		clone.GetComponent<Image> ().color = GridBuilder.Instance.cellTypeColor [i].color;
 		SetClickListener (clone, i);
 	}

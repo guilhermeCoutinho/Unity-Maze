@@ -7,7 +7,7 @@ public class GridObject : MonoBehaviour {
     int x, y ;
 	public ContextualMenu contextualMenu;
     Renderer rend;
-	CellTypeColor cellType ;
+	CellElement cellType ;
 
     void Awake() {
         rend = GetComponentInChildren<Renderer>();
