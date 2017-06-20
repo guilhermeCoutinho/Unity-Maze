@@ -115,8 +115,8 @@ public class GridBuilder : SingletonMonoBehaviour<GridBuilder> {
 public class CellElement {
 	public enum Type {
 		EMPTY ,
-		FLOOR ,
-		INITIAL_POSITION,
+		INITIAL_POSITION ,
+		FLOOR,
 		END_POSITION ,
 		ENEMY_POSITION
 	}

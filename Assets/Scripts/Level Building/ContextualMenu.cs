@@ -17,8 +17,7 @@ public class ContextualMenu : SingletonMonoBehaviour<ContextualMenu> {
 	void Start( ) {
 		gameObject.SetActive (false);
 	}
-
-
+    
 	void SetupChildren () {
 		child = transform.GetChild (0).gameObject;
 		setNameNColor (child, 0);
@@ -32,7 +31,7 @@ public class ContextualMenu : SingletonMonoBehaviour<ContextualMenu> {
 	{
 		clone.name = GridBuilder.Instance.cellTypeColor [i].type.ToString ();
 		clone.GetComponent<Image> ().color = GridBuilder.Instance.cellTypeColor [i].color;
-		SetClickListener (clone, i);
+		SetClickListener (clone, (int)GridBuilder.Instance.cellTypeColor[i].type);
 	}
 
 	void SetClickListener (GameObject clone, int i)
